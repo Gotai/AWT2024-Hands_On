@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Hands-On_Examples",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,13 @@
   },
   "dependencies": {
     "express": "^4.19.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gotai/AWT2024-Hands_On.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gotai/AWT2024-Hands_On/issues"
+  },
+  "homepage": "https://github.com/Gotai/AWT2024-Hands_On#readme"
 }
