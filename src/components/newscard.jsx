@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function NewsCard({news}) {
-  console.log(news)  
   return (
     <>
      <CardContent>

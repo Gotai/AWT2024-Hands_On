@@ -11,6 +11,7 @@ import { Events } from './components/Events.jsx';
 export default function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [NewsDataEvents, setNewsDataEvents] = useState([]);
+  const [EventList, setEventList] = useState([]);
 
   useEffect(() => {
     function onConnect() {
@@ -22,12 +23,18 @@ export default function App() {
     }
 
     function onNewsDataEvent(value) {
-      setNewsDataEvents(previous => [...previous, value]);
+      setNewsDataEvents(previous => [...previous, value.data]);
     }
+
+    function onEvent(value) {
+      setEventList(previous => [...previous, value.eventName]);
+    }
+
 
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('NewsData', onNewsDataEvent);
+    socket.on('NewsData', onEvent);
 
     return () => {
       socket.off('connect', onConnect);
@@ -39,7 +46,7 @@ export default function App() {
   return (
     <div className="App">
       <ConnectionState isConnected={ isConnected } />
-      <Events events={ NewsDataEvents } />
+      <Events events={ EventList } />
       <ConnectionManager />
       <NewsFeed NewsData={NewsDataEvents}/>
     </div>

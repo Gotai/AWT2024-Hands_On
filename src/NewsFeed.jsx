@@ -22,7 +22,8 @@ function NewsFeed({NewsData}) {
       return (
         <>
         <NewsCard
-         news={post} 
+          key={index}
+          news={post} 
         />
         </>
       );
